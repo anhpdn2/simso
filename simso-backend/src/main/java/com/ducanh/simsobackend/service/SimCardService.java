@@ -1,7 +1,11 @@
 package com.ducanh.simsobackend.service;
 
-import org.springframework.stereotype.Service;
+import com.ducanh.simsobackend.entity.SIMCard;
 
-@Service
+import java.util.UUID;
+
 public interface SimCardService {
+    SIMCard findOneSimCard(String id);
+    SIMCard saveSim(SIMCard simCard);
+    boolean deleteSim(String id);
 }

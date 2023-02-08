@@ -1,4 +1,8 @@
 package com.ducanh.simsobackend.service.impl;
 
-public class PaymentServiceImpl {
+import com.ducanh.simsobackend.service.PaymentService;
+import org.springframework.stereotype.Service;
+
+@Service
+public class PaymentServiceImpl implements PaymentService {
 }
