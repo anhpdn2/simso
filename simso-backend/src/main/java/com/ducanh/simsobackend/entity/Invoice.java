@@ -1,10 +1,13 @@
 package com.ducanh.simsobackend.entity;
 
+import lombok.Data;
+
 import javax.persistence.*;
 import java.util.UUID;
 
 @Entity
 @Table(name = "invoice")
+@Data
 public class Invoice {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -35,67 +38,11 @@ public class Invoice {
     @Column(name = "mail_status")
     private Integer mailStatus;
 
-    public Integer getShip_method() {
-        return ship_method;
-    }
+    @OneToOne(orphanRemoval = true)
+    @JoinColumn(name = "payment_id")
+    private Payment payment;
 
-    public void setShip_method(Integer ship_method) {
-        this.ship_method = ship_method;
-    }
-
-    public Integer getSim_method() {
-        return sim_method;
-    }
-
-    public void setSim_method(Integer sim_method) {
-        this.sim_method = sim_method;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
-    public Integer getMailStatus() {
-        return mailStatus;
-    }
-
-    public void setMailStatus(Integer mailStatus) {
-        this.mailStatus = mailStatus;
-    }
+    @ManyToOne
+    @JoinColumn(name="sim_id", nullable=false)
+    private SIMCard simCard;
 }

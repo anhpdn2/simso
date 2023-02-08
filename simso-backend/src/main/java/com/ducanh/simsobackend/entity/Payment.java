@@ -1,5 +1,7 @@
 package com.ducanh.simsobackend.entity;
 
+import lombok.Data;
+
 import javax.persistence.*;
 import java.sql.Timestamp;
 import java.time.Instant;
@@ -7,6 +9,7 @@ import java.util.UUID;
 
 @Entity
 @Table(name = "payment")
+@Data
 public class Payment {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -25,44 +28,15 @@ public class Payment {
     @Column(name = "shipped_time")
     private Instant shippedTime;
 
-    public Instant getShippedTime() {
-        return shippedTime;
+    @OneToOne(mappedBy = "payment", orphanRemoval = true)
+    private Invoice invoice;
+
+    public Invoice getInvoice() {
+        return invoice;
     }
 
-    public void setShippedTime(Instant shippedTime) {
-        this.shippedTime = shippedTime;
-    }
-
-    public String getCallCustomerTime() {
-        return callCustomerTime;
-    }
-
-    public void setCallCustomerTime(String callCustomerTime) {
-        this.callCustomerTime = callCustomerTime;
-    }
-
-    public Timestamp getPaymentTime() {
-        return paymentTime;
-    }
-
-    public void setPaymentTime(Timestamp paymentTime) {
-        this.paymentTime = paymentTime;
-    }
-
-    public Integer getStatus() {
-        return status;
-    }
-
-    public void setStatus(Integer status) {
-        this.status = status;
-    }
-
-    public UUID getId() {
-        return id;
-    }
-
-    public void setId(UUID id) {
-        this.id = id;
+    public void setInvoice(Invoice invoice) {
+        this.invoice = invoice;
     }
 
 }
