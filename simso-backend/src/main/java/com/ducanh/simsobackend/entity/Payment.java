@@ -21,10 +21,10 @@ public class Payment {
     private Integer status;
 
     @Column(name = "payment_time")
-    private Timestamp paymentTime;
+    private Instant paymentTime;
 
     @Column(name = "call_customer_time")
-    private String callCustomerTime;
+    private Instant callCustomerTime;
 
     @Column(name = "shipped_time")
     private Instant shippedTime;

@@ -6,8 +6,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.Optional;
 import java.util.UUID;
 
-public interface SIMCardRepository extends JpaRepository<SIMCard, UUID> {
-    Optional<SIMCard> findSIMCardsById(UUID id);
+public interface SIMCardRepository extends JpaRepository<SIMCard, Long> {
+    Optional<SIMCard> findSIMCardsById(Long id);
 
-    boolean deleteSIMCardById(UUID id);
+    boolean deleteSIMCardById(Long id);
 }

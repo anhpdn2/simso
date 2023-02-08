@@ -17,8 +17,7 @@ public class SimCardController {
     @Autowired
     private SimCardService simCardService;
     @GetMapping("/find-by-id/{id}")
-    public ResponseEntity<SIMCard> findOneSim(@PathVariable String id) {
-        System.out.println("id: " + id);
+    public ResponseEntity<SIMCard> findOneSim(@PathVariable Long id) {
         return ResponseEntity.ok(simCardService.findOneSimCard(id));
     }
     @PostMapping
@@ -33,7 +32,7 @@ public class SimCardController {
     }
 
     @DeleteMapping
-    public ResponseEntity<Boolean> updateSim(@RequestBody String id) {
+    public ResponseEntity<Boolean> updateSim(@RequestBody Long id) {
 
         return ResponseEntity.ok(simCardService.deleteSim(id));
     }

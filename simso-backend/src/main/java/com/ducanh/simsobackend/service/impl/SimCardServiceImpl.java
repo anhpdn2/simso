@@ -15,8 +15,8 @@ public class SimCardServiceImpl implements SimCardService {
     JpaRepository jpaRepository;
 
     @Override
-    public SIMCard findOneSimCard(String id) {
-        return jpaRepository.simCardRepository.findSIMCardsById(UUID.fromString(id)).orElseThrow();
+    public SIMCard findOneSimCard(Long id) {
+        return jpaRepository.simCardRepository.findSIMCardsById(id).orElseThrow();
     }
 
     @Override
@@ -25,7 +25,7 @@ public class SimCardServiceImpl implements SimCardService {
     }
 
     @Override
-    public boolean deleteSim(String id) {
-        return jpaRepository.simCardRepository.deleteSIMCardById(UUID.fromString(id));
+    public boolean deleteSim(Long id) {
+        return jpaRepository.simCardRepository.deleteSIMCardById(id);
     }
 }
