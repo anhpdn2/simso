@@ -243,3 +243,125 @@ a, a:hover, a:focus, a:active {
   left: 50%;
   right: 50%;
 }
+
+.main-nav > ul > li > a:not(:only-child):after {
+  content: "\f107";
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 20px;
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 9px;
+  color: #0E2045;
+}
+
+.mb-64 {
+  margin-bottom: 64px !important;
+}
+
+.mt-64 {
+  margin-top: 64px !important;
+}
+.mb-24 {
+  margin-bottom: 24px !important;
+}
+.align-items-end {
+  -ms-flex-align: end!important;
+  align-items: flex-end!important;
+}
+.block-title {
+  font-size: 28px;
+  font-weight: 800;
+  line-height: 40px;
+  color: #171717;
+}
+.gutter-8 {
+  margin-left: -4px;
+  margin-right: -4px;
+}
+
+.gutter-8 > [class*='col-'], .gutter-8 > .col, .gutter-8 > [class^='col-'] {
+  padding-left: 4px;
+  padding-right: 4px;
+}
+.mb-8 {
+  margin-bottom: 8px !important;
+}
+.col-7item {
+  -ms-flex: 0 0 14.2857%;
+  -webkit-box-flex: 0;
+  flex: 0 0 14.2857%;
+  max-width: 14.2857%;
+}
+.link {
+  color: #3D73DD;
+  font-weight: 800;
+  font-size: 16px;
+  line-height: 26px;
+  display: inline-block;
+}
+.link:hover {
+  text-decoration: underline;
+  color: #3D73DD;
+}
+
+.img-delay {
+  width: 100%;
+}
+
+.tag-label.d-block {
+  padding-left: 3px;
+  padding-right: 3px;
+}
+.tag-label {
+  line-height: 20px;
+  font-weight: 600;
+  padding: 6px 10px;
+  font-size: 13px;
+  font-style: italic;
+  border: solid 1px rgba(209, 215, 223, 0.75);
+  border-radius: 8px;
+  background-color: #fafafa;
+  cursor: pointer;
+  text-align: center;
+  overflow:auto;
+}
+.tag-label:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+img {
+  max-width: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+  vertical-align: middle;
+}
+
+.tag-sim img {
+  height: auto;
+  margin: auto;
+  max-height: 86%;
+  max-width: 86%;
+  width: auto;
+}
+
+.tag-sim {
+  height: 36px;
+  line-height: 36px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  border: solid 1px rgba(209, 215, 223, 0.75);
+  border-radius: 8px;
+  background-color: #fff;
+  cursor: pointer;
+  text-align: center;
+}
