@@ -31,53 +31,9 @@ import java.util.UUID;
 public class SimCardController {
     @Autowired
     private SimCardService simCardService;
-    @Autowired
-    private KafkaTemplate<String, String> kafkaTemplate;
-    @Autowired
-    private JavaMailSender emailSender;
-    @Autowired
-    private SpringTemplateEngine templateEngine;
-
-    @Value("classpath:/templates/images/image-1.png")
-    Resource resourceFile1;
-
-    @Value("classpath:/templates/images/image-2.png")
-    Resource resourceFile2;
-
-    @Value("classpath:/templates/images/image-3.png")
-    Resource resourceFile3;
-
-    @Value("classpath:/templates/images/image-4.png")
-    Resource resourceFile4;
-
-    @Value("classpath:/templates/images/image-5.jpeg")
-    Resource resourceFile5;
-
-    @Value("classpath:/templates/images/image-6.png")
-    Resource resourceFile6;
 
     @GetMapping("/find-by-id/{id}")
-    public ResponseEntity<SIMCard> findOneSim(@PathVariable Long id) throws MessagingException {
-        kafkaTemplate.send("demo", "ducanh tesst kafka");
-        MimeMessage message = emailSender.createMimeMessage();
-        MimeMessageHelper helper = new MimeMessageHelper(message, MimeMessageHelper.MULTIPART_MODE_MIXED_RELATED, StandardCharsets.UTF_8.name());
-        Context context = new Context();
-
-
-        helper.setFrom("anhpdn3@gmail.com");
-        helper.setTo("anhpdn2@gmail.com");
-        helper.setSubject("ddm");
-        String html = templateEngine.process("index.html", context);
-        helper.setText(html, true);
-        helper.addInline("image1.png", resourceFile1);
-        helper.addInline("image2.png", resourceFile2);
-        helper.addInline("image3.png", resourceFile3);
-        helper.addInline("image4.png", resourceFile4);
-        helper.addInline("image5.png", resourceFile5);
-        helper.addInline("image6.png", resourceFile6);
-        emailSender.send(message);
-
-
+    public ResponseEntity<SIMCard> findOneSim(@PathVariable Long id) {
         return ResponseEntity.ok(simCardService.findOneSimCard(id));
     }
 
